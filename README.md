@@ -13,7 +13,7 @@ This is an application to convert YouTube videos—primarily slideshow-based edu
 
 ## Prerequisites
 Ensure you have the following installed:
-- Python 3.10
+- Python 3.7+
 - FFMPEG (Ensure the path is correctly set in the script)
 - Required Python packages:
   ```sh
@@ -23,8 +23,8 @@ Ensure you have the following installed:
 ## Installation & Usage
 1. Clone this repository:
    ```sh
-   git clone https://github.com/your-repo/youtube-to-pdf.git
-   cd youtube-to-pdf
+   git clone https://github.com/harsh040506/Youtube-Video-to-PDF-Converter.git
+   cd Youtube-Video-to-PDF-Converter
    ```
 2. Install dependencies:
    ```sh
@@ -51,9 +51,15 @@ Ensure you have the following installed:
 - The application uses Structural Similarity Index (SSIM) to compare images and remove redundant frames.
 - It processes black-and-white slides separately to maintain key information.
 
+## Contribution
+Feel free to contribute by opening an issue or submitting a pull request:
+[GitHub Repository](https://github.com/harsh040506/Youtube-Video-to-PDF-Converter/tree/main)
+
+You can also edit the README directly via GitHub:
+[Edit README](https://github.com/harsh040506/Youtube-Video-to-PDF-Converter/edit/main/README.md)
+
 ## License
 This project is open-source under the MIT License.
 
 ## Acknowledgments
 Special thanks to open-source libraries like Flask, yt-dlp, MoviePy, OpenCV, and ReportLab for making this application possible.
-
