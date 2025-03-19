@@ -13,7 +13,7 @@ This is an application to convert YouTube videos—primarily slideshow-based edu
 
 ## Prerequisites
 Ensure you have the following installed:
-- Python 3.7+
+- Python 3.10.11
 - FFMPEG (Ensure the path is correctly set in the script)
 - Required Python packages:
   ```sh
