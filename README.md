@@ -51,13 +51,6 @@ Ensure you have the following installed:
 - The application uses Structural Similarity Index (SSIM) to compare images and remove redundant frames.
 - It processes black-and-white slides separately to maintain key information.
 
-## Contribution
-Feel free to contribute by opening an issue or submitting a pull request:
-[GitHub Repository](https://github.com/harsh040506/Youtube-Video-to-PDF-Converter/tree/main)
-
-You can also edit the README directly via GitHub:
-[Edit README](https://github.com/harsh040506/Youtube-Video-to-PDF-Converter/edit/main/README.md)
-
 ## License
 This project is open-source under the MIT License.
 
