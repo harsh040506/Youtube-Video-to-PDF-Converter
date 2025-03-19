@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video to PDF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Urbanist', sans-serif;
+            height: 100vh;
+            background: #121212;
+            padding: 0;
+            margin: 0;
+            overflow: hidden; /* Hide scrollbars */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .background-text {
+            position: absolute;
+            top: -30%;  /* Move text up slightly */
+            left: -25%; /* Adjust left offset for better coverage */
+            width: 200%; /* Increase width to account for top and left offset */
+            height: 200%; /* Increase height*/
+            font-size: 1.8vmax; /* Slightly larger font */
+            color: #222;
+            opacity: 0.8;
+            pointer-events: none;
+            user-select: none;
+            white-space: pre-wrap;
+            z-index: 0;
+            transition: color 0.3s ease;
+            line-height: 1.3; /* Adjust line-height*/
+            overflow: hidden;
+            padding: 20px;
+            text-align: justify;
+            transform: rotate(-6deg);
+        }
+
+        .container {
+            position: relative;
+            background: #282828;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            color: #dadada;
+            max-width: 90%;
+            width: 400px;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            color: #dadada;
+            font-weight: 800;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.8em;
+            margin-bottom: 1em;
+            border: 2px solid #555;
+            border-radius: 4px;
+            background: #121212;
+            color: #dadada;
+            font-family: 'Urbanist', sans-serif;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.8em;
+            background: #555;
+            color: #dadada;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Urbanist', sans-serif;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background: #777;
+        }
+
+        .error {
+            color: #ff5555;
+            margin-top: 1em;
+        }
+
+        .download-link {
+            margin-top: 1.5em;
+        }
+
+        .download-link a {
+            color: #dadada;
+            text-decoration: none;
+            border: 2px solid #555;
+            padding: 0.5em 1em;
+            border-radius: 4px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .download-link a:hover {
+            background: #555;
+            color: #121212;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-text">"The universe is written in the language of mathematics, as Galileo stated, and in that language, we find Maxwell’s equations ∇·E = ρ/ε₀, ∇·B = 0, ∇×E = -∂B/∂t, ∇×B = μ₀J + μ₀ε₀∂E/∂t, which define electromagnetism. Newton’s laws of motion—F = ma—govern classical mechanics, while Einstein’s field equations, Rμν - (1/2)Rgμν + Λgμν = (8πG/c⁴)Tμν, dictate general relativity and the warping of spacetime by mass. “God does not play dice,” Einstein famously contested against quantum mechanics, but Heisenberg’s uncertainty principle, ΔxΔp ≥ ħ/2, reveals the fundamental limits of measurement. Schrödinger’s wave equation, iħ∂Ψ/∂t = ĤΨ, determines quantum states, while Dirac’s equation, (iγ^μ∂_μ - m)ψ = 0, unifies relativity with quantum mechanics. The Standard Model of particle physics classifies fundamental forces via gauge groups SU(3)_C × SU(2)_L × U(1)_Y, and the Higgs boson, with mass ~125 GeV/c², imparts mass via the Higgs field, Φ = (0, v/√2). The fine-structure constant, α ≈ 1/137, characterizes electromagnetic interactions, and Feynman once mused, “If nature is simple, then it is because the laws of physics are simple.” In chemistry, the ideal gas law PV = nRT governs gases, and the Gibbs free energy equation, ΔG = ΔH - TΔS, determines spontaneity. The Boltzmann entropy formula, S = k lnΩ, underpins statistical mechanics, while Planck’s law, E = hf, quantizes energy. Gravity bends light as described by the Einstein deflection angle, Δθ ≈ 4GM/(c²b), observable in gravitational lensing. The Navier-Stokes equations govern fluid dynamics, ∂u/∂t + (u·∇)u = -∇p/ρ + ν∇²u + f, while Fourier’s law of heat conduction, q = -k∇T, describes thermal transfer. The wave equation, ∂²y/∂t² = v²∂²y/∂x², dictates harmonic motion, with applications from sound waves to quantum fields. Euler’s identity, e^(iπ) + 1 = 0, is “the most beautiful equation,” and Noether’s theorem links symmetries to conservation laws. The cosmos expands per Hubble’s law, v = H₀d, and the cosmic microwave background at 2.725 K whispers remnants of the Big Bang. String theory suggests extra dimensions beyond our 3+1 reality, encapsulated in the 10-dimensional framework of M-theory. The double-slit experiment demonstrates wave-particle duality, where P(x) = |Ψ(x)|² gives quantum probabilities. “Not only is the universe stranger than we imagine, it is stranger than we can imagine,” as Arthur Eddington put it. In special relativity, time dilates as t' = t/√(1 - v²/c²), leading to the twin paradox. Lagrangian mechanics, with L = T - V, elegantly reformulates Newtonian physics. The Carnot efficiency η = 1 - T_c/T_h sets thermodynamic limits. Quarks, bound by gluons, experience asymptotic freedom per the QCD beta function, β(g) ∝ -g³. Dark matter interacts gravitationally, hinted by galaxy rotation curves, while dark energy accelerates cosmic expansion per ΛCDM models. The Chandrasekhar limit, ~1.4 M☉, dictates white dwarf collapse into neutron stars or black holes. The Pauli exclusion principle forbids identical fermions from occupying the same quantum state. “We are all star stuff,” Carl Sagan noted, as nucleosynthesis forms elements in stellar cores. Quantum tunneling underpins nuclear fusion in the Sun, where T ≈ 15 million K ensures proton-proton chain reactions. The de Broglie wavelength λ = h/p reveals matter’s wave nature. The Anthropic Principle questions if physical constants fine-tune life’s existence. Gödel’s incompleteness theorems imply no complete and consistent set of axioms exists for arithmetic. Fractals, as in Mandelbrot’s set z → z² + c, exhibit self-similarity. Fermat’s Last Theorem, xⁿ + yⁿ ≠ zⁿ for n > 2, was finally proved by Wiles in 1994. The Riemann Hypothesis conjectures all nontrivial ζ(s) zeros lie on Re(s) = 1/2, holding deep implications for prime distribution. “Some infinities are bigger than others,” Cantor revealed, distinguishing countable from uncountable sets. In topology, the Poincaré conjecture, solved by Perelman, characterizes 3-manifolds. Black hole entropy, S = kA/4ℓ_p², relates to event horizons, hinting at quantum gravity. AdS/CFT duality suggests spacetime emerges from quantum entanglement. The second law of thermodynamics, dS/dt ≥ 0, governs entropy’s inexorable increase. The strong nuclear force, mediated by gluons, confines quarks within protons and neutrons. The weak interaction, via W and Z bosons, enables beta decay and neutrino interactions. Neutrinos oscillate between flavors, requiring nonzero mass per experimental evidence. Hawking radiation, T_H = ħc³/(8πGMk), predicts black hole evaporation. The Alcubierre metric, ds² = -(1 - v_s²/c²)dt² + dx² + dy² + dz², postulates faster-than-light travel. “The distinction between past, present, and future is only a stubbornly persistent illusion,” Einstein remarked. The Drake equation, N = R* × f_p × n_e × f_l × f_i × f_c × L, estimates extraterrestrial civilizations. Laplace’s demon, in a deterministic universe, could predict all future events, though quantum randomness defies it. The Schrödinger cat paradox highlights quantum superposition until measurement collapses Ψ. The EPR paradox, Bell’s theorem, and quantum entanglement defy classical locality. Quantum field theory describes interactions via Feynman diagrams, where loops signify virtual particles. “Science is the poetry of reality,” as Dawkins described, encapsulating the pursuit of fundamental truths. The universe is written in the language of mathematics, as Galileo stated, and in that language, we find Maxwell’s equations ∇·E = ρ/ε₀, ∇·B = 0, ∇×E = -∂B/∂t, ∇×B = μ₀J + μ₀ε₀∂E/∂t, which define electromagnetism. Newton’s laws of motion—F = ma—govern classical mechanics, while Einstein’s field equations, Rμν - (1/2)Rgμν + Λgμν = (8πG/c⁴)Tμν, dictate general relativity and the warping of spacetime by mass. “God does not play dice,” Einstein famously contested against quantum mechanics, but Heisenberg’s uncertainty principle, ΔxΔp ≥ ħ/2, reveals the fundamental limits of measurement. Schrödinger’s wave equation, iħ∂Ψ/∂t = ĤΨ, determines quantum states, while Dirac’s equation, (iγ^μ∂_μ - m)ψ = 0, unifies relativity with quantum mechanics. The Standard Model of particle physics classifies fundamental forces via gauge groups SU(3)_C × SU(2)_L × U(1)_Y, and the Higgs boson, with mass ~125 GeV/c², imparts mass via the Higgs field, Φ = (0, v/√2). The fine-structure constant, α ≈ 1/137, characterizes electromagnetic interactions, and Feynman once mused, “If nature is simple, then it is because the laws of physics are simple.” In chemistry, the ideal gas law PV = nRT governs gases, and the Gibbs free energy equation, ΔG = ΔH - TΔS, determines spontaneity. The Boltzmann entropy formula, S = k lnΩ, underpins statistical mechanics, while Planck’s law, E = hf, quantizes energy. Gravity bends light as described by the Einstein deflection angle, Δθ ≈ 4GM/(c²b), observable in gravitational lensing. The Navier-Stokes equations govern fluid dynamics, ∂u/∂t + (u·∇)u = -∇p/ρ + ν∇²u + f, while Fourier’s law of heat conduction, q = -k∇T, describes thermal transfer. The wave equation, ∂²y/∂t² = v²∂²y/∂x², dictates harmonic motion, with applications from sound waves to quantum fields. Euler’s identity, e^(iπ) + 1 = 0, is “the most beautiful equation,” and Noether’s theorem links symmetries to conservation laws. The cosmos expands per Hubble’s law, v = H₀d, and the cosmic microwave background at 2.725 K whispers remnants of the Big Bang. String theory suggests extra dimensions beyond our 3+1 reality, encapsulated in the 10-dimensional framework of M-theory. The double-slit experiment demonstrates wave-particle duality, where P(x) = |Ψ(x)|² gives quantum probabilities. “Not only is the universe stranger than we imagine, it is stranger than we can imagine,” as Arthur Eddington put it. In special relativity, time dilates as t' = t/√(1 - v²/c²), leading to the twin paradox. Lagrangian mechanics, with L = T - V, elegantly reformulates Newtonian physics. The Carnot efficiency η = 1 - T_c/T_h sets thermodynamic limits. Quarks, bound by gluons, experience asymptotic freedom per the QCD beta function, β(g) ∝ -g³. Dark matter interacts gravitationally, hinted by galaxy rotation curves, while dark energy accelerates cosmic expansion per ΛCDM models. The Chandrasekhar limit, ~1.4 M☉, dictates white dwarf collapse into neutron stars or black holes. The Pauli exclusion principle forbids identical fermions from occupying the same quantum state. “We are all star stuff,” Carl Sagan noted, as nucleosynthesis forms elements in stellar cores. Quantum tunneling underpins nuclear fusion in the Sun, where T ≈ 15 million K ensures proton-proton chain reactions. The de Broglie wavelength λ = h/p reveals matter’s wave nature. The Anthropic Principle questions if physical constants fine-tune life’s existence. Gödel’s incompleteness theorems imply no complete and consistent set of axioms exists for arithmetic. Fractals, as in Mandelbrot’s set z → z² + c, exhibit self-similarity. Fermat’s Last Theorem, xⁿ + yⁿ ≠ zⁿ for n > 2, was finally proved by Wiles in 1994. The Riemann Hypothesis conjectures all nontrivial ζ(s) zeros lie on Re(s) = 1/2, holding deep implications for prime distribution. “Some infinities are bigger than others,” Cantor revealed, distinguishing countable from uncountable sets. In topology, the Poincaré conjecture, solved by Perelman, characterizes 3-manifolds. Black hole entropy, S = kA/4ℓ_p², relates to event horizons, hinting at quantum gravity. AdS/CFT duality suggests spacetime emerges from quantum entanglement. The second law of thermodynamics, dS/dt ≥ 0, governs entropy’s inexorable increase. The strong nuclear force, mediated by gluons, confines quarks within protons and neutrons. The weak interaction, via W and Z bosons, enables beta decay and neutrino interactions. Neutrinos oscillate between flavors, requiring nonzero mass per experimental evidence. Hawking radiation, T_H = ħc³/(8πGMk), predicts black hole evaporation. The Alcubierre metric, ds² = -(1 - v_s²/c²)dt² + dx² + dy² + dz², postulates faster-than-light travel. “The distinction between past, present, and future is only a stubbornly persistent illusion,” Einstein remarked. The Drake equation, N = R* × f_p × n_e × f_l × f_i × f_c × L, estimates extraterrestrial civilizations. Laplace’s demon, in a deterministic universe, could predict all future events, though quantum randomness defies it. The Schrödinger cat paradox highlights quantum superposition until measurement collapses Ψ. The EPR paradox, Bell’s theorem, and quantum entanglement defy classical locality. Quantum field theory describes interactions via Feynman diagrams, where loops signify virtual particles. “Science is the poetry of reality,” as Dawkins described, encapsulating the pursuit of fundamental truths."</div>
+    <div class="container">
+        <h1>YouTube Video to PDF</h1>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <form id="urlForm" method="POST">
+            <input type="text" id="urlInput" name="url" placeholder="Enter YouTube Video URL" required>
+            <button type="submit">Extract Screenshots</button>
+        </form>
+        {% if download_link %}
+            <div class="download-link">
+                <a href="/download/{{ download_link }}">Download PDF</a>
+                <a href="/">Extract Another</a>
+            </div>
+        {% endif %}
+    </div>
+    <script>
+        const downloadButton = document.querySelector('button');
+        const downloadLink = document.querySelector('.download-link a');
+        const backgroundText = document.querySelector('.background-text');
+        const urlForm = document.getElementById('urlForm');
+        const urlInput = document.getElementById('urlInput');
+
+        // Function to validate the URL
+        function validateUrl(url) {
+            // Check if the URL is a valid YouTube video URL
+            const isVideo = (url.includes("v=") || url.includes("youtu.be")) && !url.includes("list=");
+            // Check if the URL is a playlist
+            const isPlaylist = url.includes("list=") && !url.includes("v=");
+            // Check if the URL is a channel
+            const isChannel = /^(?:https?:\/\/)?(?:www\.)?youtube\.com\/@[a-zA-Z0-9_-]+/.test(url);
+
+            if (isVideo) {
+                return "video";
+            } else if (isPlaylist) {
+                return "playlist";
+            } else if (isChannel) {
+                return "channel";
+            } else {
+                return "invalid";
+            }
+        }
+
+        // Add form submission event listener
+        urlForm.addEventListener('submit', (event) => {
+            const url = urlInput.value.trim();
+            const urlType = validateUrl(url);
+
+            if (urlType === "playlist" || urlType === "channel" || urlType === "invalid") {
+                event.preventDefault(); // Prevent form submission
+                alert("Please enter a valid YouTube video URL. Playlists and channels are not supported.");
+            }
+        });
+
+        if (downloadButton) {
+            downloadButton.addEventListener('mouseover', () => {
+                backgroundText.style.color = '#888'; // Change to #dbd0d0 on hover
+            });
+
+            downloadButton.addEventListener('mouseout', () => {
+                backgroundText.style.color = '#222'; // Revert to original color
+            });
+        }
+
+        if (downloadLink) {
+            downloadLink.addEventListener('mouseover', () => {
+                backgroundText.style.color = '#888'; // Change to #dbd0d0 on hover
+            });
+
+            downloadLink.addEventListener('mouseout', () => {
+                backgroundText.style.color = '#222'; // Revert to original color
+            });
+        }
+    </script>
+</body>
+</html>
